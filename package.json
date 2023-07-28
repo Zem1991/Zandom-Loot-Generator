@@ -3,6 +3,9 @@
     "version": "0.0.0",
     "displayName": "Zandom Loot Generator",
     "description": "Loot Generator inspired on how Diablo 2 handles item generation. More at: https://github.com/Zem1991/Zandom-Loot-Generator",
+	"dependencies": {
+		"com.zem.zem-reusables": "0.0.0"
+	},
     "author": {
         "name": "Zem1991",
         "email": "felipelopeszem@hotmail.com",
