@@ -1,7 +1,9 @@
 {
     "name": "ZandomLootGenerator",
     "rootNamespace": "ZandomLootGenerator",
-    "references": [],
+    "references": [
+        "GUID:64600a4678493ae4893ea9c3df71425e"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
