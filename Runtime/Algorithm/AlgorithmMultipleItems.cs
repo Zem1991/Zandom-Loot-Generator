@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ZandomLootGenerator.Customizables;
+using ZemReusables;
 
 namespace ZandomLootGenerator.Algorithm
 {
     public class AlgorithmMultipleItems
     {
         private StyleParameters StyleParameters { get; }
+        public SeededRandom SeededRandom { get; }
         private MainTreasureClass MainTreasureClass { get; }
 
-        public AlgorithmMultipleItems(StyleParameters styleParameters, MainTreasureClass mainTreasureClass)
+        public AlgorithmMultipleItems(StyleParameters styleParameters, SeededRandom seededRandom, MainTreasureClass mainTreasureClass)
         {
             StyleParameters = styleParameters;
+            SeededRandom = seededRandom;
             MainTreasureClass = mainTreasureClass;
         }
 
@@ -24,7 +27,7 @@ namespace ZandomLootGenerator.Algorithm
             List<ItemReward> result = new();
             while (result.Count < minimumDrops || attempts < maximumDrops)
             {
-                AlgorithmSingleItem algorithm = new(StyleParameters, MainTreasureClass);
+                AlgorithmSingleItem algorithm = new(StyleParameters, SeededRandom, MainTreasureClass);
                 ItemReward reward = algorithm.Process();
                 result.Add(reward);
             }

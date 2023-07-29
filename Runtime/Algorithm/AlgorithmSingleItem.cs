@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ZandomLootGenerator.Customizables;
+using ZemReusables;
 
 namespace ZandomLootGenerator.Algorithm
 {
     public class AlgorithmSingleItem
     {
         private StyleParameters StyleParameters { get; }
+        public SeededRandom SeededRandom { get; }
         private MainTreasureClass MainTreasureClass { get; }
 
-        public AlgorithmSingleItem(StyleParameters styleParameters, MainTreasureClass mainTreasureClass)
+        public AlgorithmSingleItem(StyleParameters styleParameters, SeededRandom seededRandom, MainTreasureClass mainTreasureClass)
         {
             StyleParameters = styleParameters;
+            SeededRandom = seededRandom;
             MainTreasureClass = mainTreasureClass;
         }
 
@@ -51,7 +54,7 @@ namespace ZandomLootGenerator.Algorithm
 
         private string PickRarity(ItemBase item)
         {
-            string result = MainTreasureClass.Parameters.rarityWeights.Pick(StyleParameters, item);
+            string result = MainTreasureClass.Parameters.rarityWeights.Pick(StyleParameters, SeededRandom, item);
             return result;
         }
 

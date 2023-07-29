@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ZandomLootGenerator.Customizables;
+using ZemReusables;
 
 namespace ZandomLootGenerator.Algorithm
 {
@@ -17,17 +18,6 @@ namespace ZandomLootGenerator.Algorithm
 
         public List<int> Weights { get => weights; }
 
-        public string Pick(StyleParameters styleParameters, ItemBase item)
-        {
-            List<string> rarityTiers = styleParameters.RarityTiers;
-            if (Weights.Count != rarityTiers.Count)
-            {
-                throw new System.Exception($"Rarity Tiers and Rarity Weights differ in count.");
-            }
-            //TODO: weighted selection based on what the item allows for rarity;
-            return rarityTiers[0]; //return Rarity.NORMAL;
-        }
-
         public RarityWeights Combine(RarityWeights other)
         {
             List<int> otherWeights = other.Weights;
@@ -42,6 +32,26 @@ namespace ZandomLootGenerator.Algorithm
                 newWeights.Add(weight);
             }
             RarityWeights result = new(newWeights);
+            return result;
+        }
+
+        public string Pick(StyleParameters styleParameters, SeededRandom seededRandom, ItemBase item)
+        {
+            List<string> rarityTiers = styleParameters.RarityTiers;
+            if (Weights.Count != rarityTiers.Count)
+            {
+                throw new System.Exception($"Rarity Tiers and Rarity Weights differ in count.");
+            }
+            Dictionary<string, float> options = new();
+            for (int i = 0; i < Weights.Count; i++)
+            {
+                string forRarity = rarityTiers[i];
+                float forWeight = Weights[i];
+                options.Add(forRarity, forWeight);
+            }
+            WeightedListHelper weightedListHelper = new();
+            KeyValuePair<string, float> kvPair = weightedListHelper.RandomPick(options, seededRandom, x => x.Value);
+            string result = kvPair.Key;
             return result;
         }
     }

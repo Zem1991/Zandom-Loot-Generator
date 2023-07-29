@@ -37,11 +37,11 @@ namespace ZandomLootGenerator
             CurrentSeedInt = SeededRandom.SeedInt;
         }
 
-        public List<ItemReward> Generate(TreasureClass encounterTC, int playerLevel)
+        public List<ItemReward> Generate(SeededRandom seededRandom, TreasureClass encounterTC, int playerLevel)
         {
             List<ItemReward> result = new();
             MainTreasureClass mtc = DefineMainTreasureClass(encounterTC, playerLevel);
-            List<ItemReward> rewards = GenerateItemRewards(zandomParameters, mtc);
+            List<ItemReward> rewards = GenerateItemRewards(zandomParameters, seededRandom, mtc);
             result.AddRange(rewards);
             return result;
         }
@@ -52,9 +52,9 @@ namespace ZandomLootGenerator
             return result;
         }
 
-        private List<ItemReward> GenerateItemRewards(StyleParameters styleParameters, MainTreasureClass mainTreasureClass)
+        private List<ItemReward> GenerateItemRewards(StyleParameters styleParameters, SeededRandom seededRandom, MainTreasureClass mainTreasureClass)
         {
-            AlgorithmMultipleItems algorithm = new(styleParameters, mainTreasureClass);
+            AlgorithmMultipleItems algorithm = new(styleParameters, seededRandom, mainTreasureClass);
             List<ItemReward> result = algorithm.Process();
             return result;
         }
