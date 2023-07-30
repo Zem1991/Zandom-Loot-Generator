@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ZemReusables;
 
 namespace ZandomLootGenerator.Customizables
 {
@@ -9,10 +10,9 @@ namespace ZandomLootGenerator.Customizables
     {
         public List<ItemBase> items = new();
 
-        public override ItemBase Pick()
+        public override ItemBase Pick(SeededRandom seededRandom)
         {
-            System.Random random = new();
-            int index = random.Next(items.Count);
+            int index = seededRandom.Range(0, items.Count);
             return items[index];
         }
     }

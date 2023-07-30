@@ -10,24 +10,20 @@ namespace ZandomLootGenerator.Customizables
     {
         public List<ItemBasePicker> references = new();
 
-        public override ItemBase Pick()
+        public override ItemBase Pick(SeededRandom seededRandom)
         {
-            //TODO: include a No Item option
-            //TODO: pick from weighted options
-            System.Random random = new();
-            int index = random.Next(references.Count);
-            return references[index].Pick();
-            Dictionary<string, float> options = new();
-            for (int i = 0; i < Weights.Count; i++)
+            //TODO: include a No Item option?
+            Dictionary<ItemBasePicker, float> options = new();
+            for (int i = 0; i < references.Count; i++)
             {
-                string forRarity = rarityTiers[i];
-                float forWeight = Weights[i];
-                options.Add(forRarity, forWeight);
+                ItemBasePicker forItem = references[i];
+                float forWeight = 1F;
+                options.Add(forItem, forWeight);
             }
             WeightedListHelper weightedListHelper = new();
-            KeyValuePair<string, float> kvPair = weightedListHelper.RandomPick(options, seededRandom, x => x.Value);
-            string result = kvPair.Key;
-            return result;
+            KeyValuePair<ItemBasePicker, float> kvPair = weightedListHelper.RandomPick(options, seededRandom, x => x.Value);
+            ItemBasePicker picker = kvPair.Key;
+            return picker.Pick(seededRandom);
         }
     }
 }

@@ -45,6 +45,7 @@ namespace ZandomLootGenerator.Algorithm
             Dictionary<string, float> options = new();
             for (int i = 0; i < Weights.Count; i++)
             {
+                //TODO: check if item can be of such rarity
                 string forRarity = rarityTiers[i];
                 float forWeight = Weights[i];
                 options.Add(forRarity, forWeight);

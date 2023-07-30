@@ -48,7 +48,7 @@ namespace ZandomLootGenerator.Algorithm
 
         private ItemBase PickItem()
         {
-            ItemBase result = MainTreasureClass.Options.Pick();
+            ItemBase result = MainTreasureClass.Options.Pick(SeededRandom);
             return result;
         }
 
