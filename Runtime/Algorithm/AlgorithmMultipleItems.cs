@@ -27,6 +27,12 @@ namespace ZandomLootGenerator.Algorithm
             List<ItemReward> result = new();
             while (result.Count < minimumDrops || attempts < maximumDrops)
             {
+                if (attempts >= StyleParameters.AttemptsMaximum)
+                {
+                    Debug.LogError("Too many attempts at generating multiple rewards.");
+                    break;
+                }
+                attempts++;
                 AlgorithmSingleItem algorithm = new(StyleParameters, SeededRandom, MainTreasureClass);
                 ItemReward reward = algorithm.Process();
                 result.Add(reward);

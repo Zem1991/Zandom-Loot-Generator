@@ -11,5 +11,11 @@ namespace ZandomLootGenerator.Algorithm
         public string rarity;
         //public ItemBase unique;
         public List<AffixBase> affixes;
+
+        public override string ToString()
+        {
+            //TODO: affixes
+            return $"{item.name} [{rarity}]";
+        }
     }
 }

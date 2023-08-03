@@ -12,7 +12,9 @@ namespace ZandomLootGenerator.Customizables
 
         public override ItemBase Pick(SeededRandom seededRandom)
         {
-            int index = seededRandom.Range(0, items.Count);
+            int count = items.Count;
+            if (count <= 0) return null;
+            int index = seededRandom.Range(0, count);
             return items[index];
         }
     }

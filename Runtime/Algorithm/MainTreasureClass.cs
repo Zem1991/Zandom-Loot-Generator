@@ -36,11 +36,11 @@ namespace ZandomLootGenerator.Algorithm
                 return;
             }
             TreasureClass nextTC = CurrentTC.next;
+            CurrentTC = nextTC;
             if (nextTC == null)
             {
                 return;
             }
-            CurrentTC = nextTC;
             TreasureClasses.Add(nextTC);
             Parameters = Parameters.Combine(nextTC.parameters);
             Options = nextTC.options;

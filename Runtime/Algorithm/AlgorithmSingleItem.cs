@@ -22,6 +22,11 @@ namespace ZandomLootGenerator.Algorithm
         public ItemReward Process()
         {
             ItemBase item = PickItem();
+            if (item == null)
+            {
+                //Debug.LogWarning("A null ItemBase was picked, so current ItemReward is also null.");
+                return null;
+            }
             string rarity = PickRarity(item);
             ItemBase unique = null;
             List<AffixBase> affixes = new();

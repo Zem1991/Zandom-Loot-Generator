@@ -9,13 +9,14 @@ namespace ZandomLootGenerator.Algorithm
     [System.Serializable]
     public class RarityWeights
     {
+        [Tooltip("Number of entries should equal to number of rarity tiers defined in your Style Parameters object.")]
         [SerializeField] private List<int> weights = new();
 
         public RarityWeights(List<int> weights)
         {
             this.weights = weights;
         }
-
+        
         public List<int> Weights { get => weights; }
 
         public RarityWeights Combine(RarityWeights other)
@@ -45,8 +46,9 @@ namespace ZandomLootGenerator.Algorithm
             Dictionary<string, float> options = new();
             for (int i = 0; i < Weights.Count; i++)
             {
-                //TODO: check if item can be of such rarity
                 string forRarity = rarityTiers[i];
+                bool allowed = item.rarities.Contains(forRarity);
+                if (!allowed) continue;
                 float forWeight = Weights[i];
                 options.Add(forRarity, forWeight);
             }

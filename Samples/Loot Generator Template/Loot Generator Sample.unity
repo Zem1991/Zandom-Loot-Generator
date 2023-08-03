@@ -154,7 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zandomLootGenerator: {fileID: 134911744}
-  encounterTC: {fileID: 11400000, guid: 62d22a846bf0caf4785e8564e4514da5, type: 2}
+  tclv0: {fileID: 11400000, guid: 62d22a846bf0caf4785e8564e4514da5, type: 2}
+  tclv5: {fileID: 11400000, guid: f25bc2ddfe235b3489d72013c5fe2f49, type: 2}
+  tclv10: {fileID: 11400000, guid: 89811601c690a11488648f83541d32e3, type: 2}
+  currentTC: {fileID: 0}
   playerLevel: 0
 --- !u!4 &134911743
 Transform:
@@ -183,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af155ba94f17d44aa1635a040f6eab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zandomParameters: {fileID: 0}
+  zandomParameters: {fileID: 11400000, guid: ee782a9d37922104ba853304b2e34180, type: 2}
   seed: 
   maxAttempts: 10
   currentSeed: 

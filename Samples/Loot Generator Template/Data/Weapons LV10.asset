@@ -9,15 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 652a9659a3eb486489d0cdada85590d0, type: 3}
-  m_Name: Sample Treasure Class
+  m_Script: {fileID: 11500000, guid: 51f2daed8caa37248879d46eb740861c, type: 3}
+  m_Name: Weapons LV10
   m_EditorClassIdentifier: 
-  name: Sample Treasure Class
-  levelRequired: 0
-  next: {fileID: 0}
-  parameters:
-    minimumDrops: 0
-    maximumDrops: 0
-    rarityWeights:
-      weights: 
-  options: {fileID: 0}
+  items: []
