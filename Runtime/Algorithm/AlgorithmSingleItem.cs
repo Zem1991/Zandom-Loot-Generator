@@ -30,21 +30,21 @@ namespace ZandomLootGenerator.Algorithm
             RarityTier rarity = PickRarity(item);
             ItemBase unique = null;
             List<AffixBase> affixes = new();
-            if (rarity == StyleParameters.UniqueTier())
+            if (rarity == StyleParameters.UniqueRarity)
             {
                 unique = SelectUniqueItem(item);
                 if (unique == null)
                 {
-                    rarity = StyleParameters.UniqueFailsafeTier();
+                    rarity = StyleParameters.RareRarity;
                 }
             }
-            if (unique == null)
+            if (rarity != StyleParameters.CommonRarity && unique == null)
             {
                 affixes = PickAffixes(item, rarity);
             }
             ItemReward result = new()
             {
-                item = unique != null ? unique : item,
+                item = unique ?? item,
                 rarity = rarity,
                 affixes = affixes,
             };
@@ -59,8 +59,11 @@ namespace ZandomLootGenerator.Algorithm
 
         private RarityTier PickRarity(ItemBase item)
         {
-            RarityTier result = MainTreasureClass.Parameters.rarityWeights.Pick(StyleParameters, SeededRandom, item);
-            return result;
+            RarityPicker rarityPicker = new(StyleParameters, SeededRandom);
+            if (item.NoRarity) return rarityPicker.NoRarity();
+            return rarityPicker.Pick();
+            //RarityTier result = MainTreasureClass.Parameters.rarityWeights.Pick(StyleParameters, SeededRandom, item);
+            //return result;
         }
 
         private ItemBase SelectUniqueItem(ItemBase item)

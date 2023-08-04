@@ -11,27 +11,15 @@ namespace ZandomLootGenerator.Customizables
         [SerializeField] private int attemptsMaximum = 100;
 
         [Header("Rarity Options")]
-        [SerializeField] private List<RarityTier> rarityTiers = new()
-        {
-            new RarityTier("Common", Color.white),
-            new RarityTier("Magic", Color.cyan),
-            new RarityTier("Rare", Color.green),
-            new RarityTier("Unique", Color.yellow),
-        };
-        [SerializeField] private int uniqueIndex = 3;
-        [SerializeField] private int uniqueFailsafeIndex = 2;
+        [SerializeField] private RarityTier commonRarity = new("Common", Color.white);
+        [SerializeField] private RarityTier magicRarity = new("Magic", Color.cyan);
+        [SerializeField] private RarityTier rareRarity = new("Magic", Color.green);
+        [SerializeField] private RarityTier uniqueRarity = new("Unique", Color.yellow);
 
         public int AttemptsMaximum { get => attemptsMaximum; }
-        public List<RarityTier> RarityTiers { get => rarityTiers; }
-
-        public RarityTier UniqueTier()
-        {
-            return RarityTiers[uniqueIndex];
-        }
-
-        public RarityTier UniqueFailsafeTier()
-        {
-            return RarityTiers[uniqueFailsafeIndex];
-        }
+        public RarityTier CommonRarity { get => commonRarity; }
+        public RarityTier MagicRarity { get => magicRarity; }
+        public RarityTier RareRarity { get => rareRarity; }
+        public RarityTier UniqueRarity { get => uniqueRarity; }
     }
 }

@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace ZandomLootGenerator.Customizables
 {
-    [CreateAssetMenu(menuName = "Zandom Loot Generator/Affix Base")]
-    public class AffixBase : ScriptableObject
+    //[CreateAssetMenu(menuName = "Zandom Loot Generator/Affix Base")]
+    [System.Serializable]
+    public class AffixBase// : ScriptableObject
     {
-        public new string name;
-        public List<string> categories;
-        public List<string> rarities;
-        public bool isPrefix;
+        [SerializeField] private string name;
+        [SerializeField] private int level;
+        //[SerializeField] private List<string> categories;
+        //[SerializeField] private List<string> rarities;
+        [SerializeField] private bool isPrefix;
     }
 }
