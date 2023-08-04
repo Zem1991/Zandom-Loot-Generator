@@ -27,7 +27,7 @@ namespace ZandomLootGenerator.Algorithm
                 //Debug.LogWarning("A null ItemBase was picked, so current ItemReward is also null.");
                 return null;
             }
-            string rarity = PickRarity(item);
+            RarityTier rarity = PickRarity(item);
             ItemBase unique = null;
             List<AffixBase> affixes = new();
             if (rarity == StyleParameters.UniqueTier())
@@ -57,9 +57,9 @@ namespace ZandomLootGenerator.Algorithm
             return result;
         }
 
-        private string PickRarity(ItemBase item)
+        private RarityTier PickRarity(ItemBase item)
         {
-            string result = MainTreasureClass.Parameters.rarityWeights.Pick(StyleParameters, SeededRandom, item);
+            RarityTier result = MainTreasureClass.Parameters.rarityWeights.Pick(StyleParameters, SeededRandom, item);
             return result;
         }
 
@@ -68,7 +68,7 @@ namespace ZandomLootGenerator.Algorithm
             return null;
         }
 
-        private List<AffixBase> PickAffixes(ItemBase item, string rarity)
+        private List<AffixBase> PickAffixes(ItemBase item, RarityTier rarity)
         {
             return new();
         }

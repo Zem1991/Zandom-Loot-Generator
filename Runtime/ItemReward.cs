@@ -8,14 +8,15 @@ namespace ZandomLootGenerator.Algorithm
     public class ItemReward
     {
         public ItemBase item;
-        public string rarity;
+        public RarityTier rarity;
         //public ItemBase unique;
         public List<AffixBase> affixes;
 
         public override string ToString()
         {
-            //TODO: affixes
-            return $"{item.Name} [{rarity}]";
+            string color = ColorUtility.ToHtmlStringRGBA(rarity.Color);
+            string result = $"<color=#{color}>{item.Name} [{rarity.Name}]</color>";
+            return result;
         }
     }
 }

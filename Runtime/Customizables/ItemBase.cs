@@ -8,7 +8,7 @@ namespace ZandomLootGenerator.Customizables
     [System.Serializable]
     public class ItemBase// : ScriptableObject
     {
-        [SerializeField] private new string name;
+        [SerializeField] private string name;
         [SerializeField] private int level;
         //[SerializeField] private List<string> categories;
         //[SerializeField] private List<string> rarities;

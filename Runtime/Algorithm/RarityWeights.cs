@@ -36,25 +36,25 @@ namespace ZandomLootGenerator.Algorithm
             return result;
         }
 
-        public string Pick(StyleParameters styleParameters, SeededRandom seededRandom, ItemBase item)
+        public RarityTier Pick(StyleParameters styleParameters, SeededRandom seededRandom, ItemBase item)
         {
-            List<string> rarityTiers = styleParameters.RarityTiers;
+            List<RarityTier> rarityTiers = styleParameters.RarityTiers;
             if (Weights.Count != rarityTiers.Count)
             {
                 throw new System.Exception($"Rarity Tiers and Rarity Weights differ in count.");
             }
-            Dictionary<string, float> options = new();
+            Dictionary<RarityTier, float> options = new();
             for (int i = 0; i < Weights.Count; i++)
             {
-                string forRarity = rarityTiers[i];
+                RarityTier forRarity = rarityTiers[i];
                 //bool allowed = item.Rarities.Contains(forRarity);
                 //if (!allowed) continue;
                 float forWeight = Weights[i];
                 options.Add(forRarity, forWeight);
             }
             WeightedListHelper weightedListHelper = new();
-            KeyValuePair<string, float> kvPair = weightedListHelper.RandomPick(options, seededRandom, x => x.Value);
-            string result = kvPair.Key;
+            KeyValuePair<RarityTier, float> kvPair = weightedListHelper.RandomPick(options, seededRandom, x => x.Value);
+            RarityTier result = kvPair.Key;
             return result;
         }
     }

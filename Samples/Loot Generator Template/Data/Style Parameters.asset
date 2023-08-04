@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f94e9d8862ae34c9593d1f3e9f5d3f, type: 3}
   m_Name: Style Parameters
   m_EditorClassIdentifier: 
+  attemptsMaximum: 100
   rarityTiers:
-  - Normal
-  - Magic
-  - Rare
-  - Unique
+  - name: Common
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - name: Magic
+    color: {r: 0, g: 1, b: 1, a: 1}
+  - name: Rare
+    color: {r: 0, g: 1, b: 0, a: 1}
+  - name: Unique
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   uniqueIndex: 3
   uniqueFailsafeIndex: 2

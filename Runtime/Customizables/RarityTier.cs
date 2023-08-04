@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ZandomLootGenerator
+namespace ZandomLootGenerator.Customizables
 {
     [System.Serializable]
-    public struct RarityTier
+    public class RarityTier
     {
-        public string name;
-        public Color color;
+        [SerializeField] private string name;
+        [SerializeField] private Color color;
+
+        public RarityTier(string name, Color color)
+        {
+            Name = name;
+            Color = color;
+        }
+
+        public string Name { get => name; private set => name = value; }
+        public Color Color { get => color; private set => color = value; }
     }
 }

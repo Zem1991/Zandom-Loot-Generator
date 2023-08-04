@@ -19,7 +19,7 @@ MonoBehaviour:
     minimumDrops: 0
     maximumDrops: 4
     rarityWeights:
-      weights: 3c0000001e0000000800000002000000
+      weights: 1e000000140000000800000002000000
   options:
     items:
     - key: {fileID: 11400000, guid: 8b067e2c9218f3c48826e7ac668d9245, type: 2}
