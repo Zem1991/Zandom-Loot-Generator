@@ -6,7 +6,7 @@ using ZemReusables;
 namespace ZandomLootGenerator.Customizables
 {
     [System.Serializable]
-    public class TreasureOptions : PseudoDictionaryScriptableObject<ItemBasePicker, int>
+    public class TreasureOptions : PseudoDictionary<ItemBasePicker, int>
     {
         public ItemBase Pick(SeededRandom seededRandom)
         {
@@ -15,8 +15,8 @@ namespace ZandomLootGenerator.Customizables
             Dictionary<ItemBasePicker, float> pickers = new();
             foreach (var item in items)
             {
-                ItemBasePicker forItem = item.key;
-                float forWeight = item.value;
+                ItemBasePicker forItem = item.Key;
+                float forWeight = item.Value;
                 pickers.Add(forItem, forWeight);
             }
             WeightedListHelper weightedListHelper = new();
