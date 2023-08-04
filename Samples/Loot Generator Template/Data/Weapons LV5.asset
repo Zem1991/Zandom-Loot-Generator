@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f2daed8caa37248879d46eb740861c, type: 3}
   m_Name: Weapons LV5
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - name: Long Sword
+    level: 5
+  - name: Combat Shotgun
+    level: 5

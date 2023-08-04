@@ -17,14 +17,14 @@ MonoBehaviour:
   next: {fileID: 0}
   parameters:
     minimumDrops: 0
-    maximumDrops: 3
+    maximumDrops: 4
     rarityWeights:
       weights: 3c0000001e0000000800000002000000
   options:
     items:
     - key: {fileID: 11400000, guid: 8b067e2c9218f3c48826e7ac668d9245, type: 2}
       value: 10
-    - key: {fileID: 0}
-      value: 0
-    - key: {fileID: 0}
-      value: 0
+    - key: {fileID: 11400000, guid: 9382e85dafdc3c543a243d9398ab7ae9, type: 2}
+      value: 6
+    - key: {fileID: 11400000, guid: f0c2aa59a9421e64c8566366e8f4551d, type: 2}
+      value: 4

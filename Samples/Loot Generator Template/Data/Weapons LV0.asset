@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f2daed8caa37248879d46eb740861c, type: 3}
   m_Name: Weapons LV0
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - name: Short Sword
+    level: 0
+  - name: Hunting Shotgun
+    level: 0

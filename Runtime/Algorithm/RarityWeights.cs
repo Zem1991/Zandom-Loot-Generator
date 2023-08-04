@@ -47,8 +47,8 @@ namespace ZandomLootGenerator.Algorithm
             for (int i = 0; i < Weights.Count; i++)
             {
                 string forRarity = rarityTiers[i];
-                bool allowed = item.rarities.Contains(forRarity);
-                if (!allowed) continue;
+                //bool allowed = item.Rarities.Contains(forRarity);
+                //if (!allowed) continue;
                 float forWeight = Weights[i];
                 options.Add(forRarity, forWeight);
             }

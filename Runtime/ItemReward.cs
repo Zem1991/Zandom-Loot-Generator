@@ -15,7 +15,7 @@ namespace ZandomLootGenerator.Algorithm
         public override string ToString()
         {
             //TODO: affixes
-            return $"{item.name} [{rarity}]";
+            return $"{item.Name} [{rarity}]";
         }
     }
 }

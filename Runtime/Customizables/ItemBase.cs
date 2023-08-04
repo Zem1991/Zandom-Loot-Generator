@@ -4,11 +4,18 @@ using UnityEngine;
 
 namespace ZandomLootGenerator.Customizables
 {
-    [CreateAssetMenu(menuName = "Zandom Loot Generator/Item Base")]
-    public class ItemBase : ScriptableObject
+    //[CreateAssetMenu(menuName = "Zandom Loot Generator/Item Base")]
+    [System.Serializable]
+    public class ItemBase// : ScriptableObject
     {
-        public new string name;
-        public List<string> categories;
-        public List<string> rarities;
+        [SerializeField] private new string name;
+        [SerializeField] private int level;
+        //[SerializeField] private List<string> categories;
+        //[SerializeField] private List<string> rarities;
+
+        public string Name { get => name; }
+        public int Level { get => level; }
+        //public List<string> Categories { get => categories; }
+        //public List<string> Rarities { get => rarities; }
     }
 }

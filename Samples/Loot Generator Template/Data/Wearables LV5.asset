@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f2daed8caa37248879d46eb740861c, type: 3}
   m_Name: Wearables LV5
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - name: Ring Mail
+    level: 5
+  - name: Full Helm
+    level: 5

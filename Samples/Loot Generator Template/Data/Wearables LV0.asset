@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f2daed8caa37248879d46eb740861c, type: 3}
   m_Name: Wearables LV0
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - name: Leather Armor
+    level: 0
+  - name: Leather Cap
+    level: 0
